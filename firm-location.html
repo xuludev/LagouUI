@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <title>Industry Location Analysis</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link rel="stylesheet" type="text/css" href="css/mine/footer.css">
+
+    <!-- eCharts -->
+    <script src="js/echarts.min.js"></script>
+
+    <script src="echarts.js"></script>
+    <script>
+        $.get('json/china.json', function (chinaJson) {
+            echarts.registerMap('china', chinaJson);
+            var chart = echarts.init(document.getElementById('main'));
+            chart.setOption({
+                series: [{
+                    type: 'map',
+                    map: 'china'
+                }]
+            });
+        });
+    </script>
+
+</head>
+<body>
+
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="main" style="width: 800px;height:600px; margin-left: auto; margin-right: auto" align="center"></div>
+<script type="text/javascript">
+
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+    // 指定图表的配置项和数据
+    $.get('json/china.json', function (chinaJson) {
+        echarts.registerMap('china', chinaJson);
+        var chart = echarts.init(document.getElementById('main'));
+        chart.setOption({
+            series: [{
+                type: 'map',
+                map: 'china'
+            }]
+        });
+    });
+
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+
+
+<div class="fixed-action-btn horizontal" style="bottom: 45px; right: 24px;">
+    <a class="btn-floating btn-large red">
+        <i class="large mdi-navigation-menu"></i>
+    </a>
+    <ul>
+        <li><a class="btn-floating green darken-1" title="信任评估"><i class="material-icons">verified_user</i></a></li>
+        <li><a class="btn-floating yellow" href="#" title="回到顶部"><i class="material-icons">publish</i></a></li>
+        <li><a class="btn-floating blue" href="index.html"
+               title="回到首页"><i class="material-icons">fast_rewind</i></a>
+        <li><a class="btn-floating red" href="webui-visualize.html" title="Web前端"><i class="material-icons">fast_forward
+        </i></a></li>
+    </ul>
+</div>
+
+<footer class="footer-info">
+    <div align="center">
+        Designed by LucasX
+    </div>
+</footer>
+<!--  Scripts-->
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/init.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="职业,互联网,电子商务">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Get Start</title>
+
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+    <link rel="icon" type="image/png" href="amazeui-2.5.0/i/favicon.png">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="amazeui-2.5.0/i/app-icon72x72@2x.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <link rel="apple-touch-icon-precomposed" href="amazeui-2.5.0/i/app-icon72x72@2x.png">
+
+
+    <link rel="stylesheet" href="amazeui-2.5.0/css/amazeui.min.css">
+    <link rel="stylesheet" href="amazeui-2.5.0/css/app.css">
+
+    <script src="js/jquery-2.2.0.min.js"></script>
+    <script>
+        function changeState() {
+            var btn = $("button");
+            btn.html('<i class="am-icon-spinner am-icon-spin"></i>正在获取');
+            btn.css('backgroundColor', "green");
+            btn.prop('disabled', true);
+        }
+
+        $(function () {
+            $('#doc-modal-list').find('.am-icon-close').add('#doc-confirm-toggle').on('click', function () {
+                $('#my-confirm').modal({
+                    relatedTarget: this,
+                    onConfirm: function (options) {
+                        var $link = $(this.relatedTarget).prev('a');
+                        window.location.href = 'index.html';
+                    },
+                    // closeOnConfirm: false,
+                    onCancel: function () {
+                        console.log('operation canceled...')
+                    }
+                });
+            });
+        });
+    </script>
+
+    <style type="text/css">
+        .foot {
+            text-align: center;
+            font-weight: normal;
+            margin-top: 0px;
+            color: white;
+        }
+
+        body {
+            background-image: url("images/body.jpg");
+        }
+
+        .bg {
+            background-color: white;
+            opacity: 0.4;
+            align-content: center;
+            width: 450px;
+            margin: 12% auto auto;
+            vertical-align: middle;
+            transition: 2s;
+        }
+
+        .bg:hover {
+            opacity: 0.9;
+            transition: 2s;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="bg" align="center">
+    <div class="am-container" id="index">
+        <div class="am-g">
+            <div class="am-u-sm-6 am-u-sm-centered">
+                <form class="am-form" method="get">
+                    <fieldset>
+                        <legend>爬虫数据获取</legend>
+
+                        <div class="am-form-group am-btn-block">
+                            <label for="doc-select-1">Select Item</label>
+                            <select id="doc-select-1">
+                                <option value="option1">数据挖掘</option>
+                                <option value="option2">Web前端</option>
+                                <option value="option3">数据分析</option>
+                                <option value="option4">产品经理</option>
+                                <option value="option5">交互设计</option>
+                            </select>
+                            <span class="am-form-caret"></span>
+                        </div>
+
+                        <p>
+                            <button type="button" onclick="changeState()" class="am-btn am-btn-secondary am-btn-block"
+                                    style="float: right" title="开始获取数据"><i
+                                    class="am-icon-cloud-download">&nbsp;&nbsp;</i>开始抓取
+                            </button>
+                        </p>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+<footer>
+    <div class="foot">
+        Designed by @LucasX
+    </div>
+</footer>
+
+<a href="javascript:void(0)" title="返回首页" class="am-icon-btn am-icon-arrow-up am-active" id="doc-confirm-toggle"
+   data-am-modal-close="{target: '#doc-modal-1', closeViaDimmer: 0, width: 400, height: 225}"
+   style="float: right"></a>
+
+
+<div class="am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd" style="color: red">WARNING</div>
+        <div class="am-modal-bd">
+            Are you sure to cancel the current operation?
+        </div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn" data-am-modal-cancel>NO</span>
+            <span class="am-modal-btn" data-am-modal-confirm>YES</span>
+        </div>
+    </div>
+</div>
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="amazeui-2.5.0/js/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="amazeui-2.5.0/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="amazeui-2.5.0/js/amazeui.min.js"></script>
+</body>
+</html>
